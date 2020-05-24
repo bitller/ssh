@@ -30,9 +30,13 @@ class Ssh
 
         $this->port = $port;
 
-        $this->processConfigurationClosure = fn(Process $process) => null;
-
-        $this->onOutput = fn($type, $line) => null;
+        $this->processConfigurationClosure = function(Process $process) {
+            return null;
+        };
+        
+        $this->onOutput = function($type, $line) {
+            return null;
+        };
     }
 
     public static function create(...$args): self
